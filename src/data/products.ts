@@ -15,3 +15,4 @@ export const products = [
       oldPrice: 4499,
       rating: 4.8,
     }]
+    

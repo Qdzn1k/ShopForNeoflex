@@ -23,24 +23,24 @@ export default function CartPage() {
     }
   }, []);
 
-  // Функция для изменения количества товара
+  // изменяем кол-во товара
   const handleQuantityChange = (id: string, newQuantity: number) => {
     if (newQuantity <= 0) return;
     const updatedCart = cart.map(item =>
       item.id === id ? { ...item, quantity: newQuantity } : item
     );
 
-    sessionStorage.setItem('cart', JSON.stringify(updatedCart)); // Обновление sessionStorage
+    sessionStorage.setItem('cart', JSON.stringify(updatedCart)); // обновляем sessionStorage
     setCart(updatedCart);
 
 
   };
 
-  // Функция для удаления товара из корзины
+  // УдОляем товар из карзины
   const handleRemove = (id: string) => {
     const updatedCart = cart.filter(item => item.id !== id);
 
-    sessionStorage.setItem('cart', JSON.stringify(updatedCart)); // Обновление sessionStorage
+    sessionStorage.setItem('cart', JSON.stringify(updatedCart)); // обновляем sessionStorage
     setCart(updatedCart);
   };
   window.dispatchEvent(new Event("cartUpdated"));

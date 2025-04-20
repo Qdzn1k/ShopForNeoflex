@@ -1,20 +1,19 @@
-// components/CartIcon.tsx
 
-import Image from "next/image"; // или любая другая иконка
+import Image from "next/image";
 import React from "react";
 
 type CartIconProps = {
   count: number;
   iconSrc: string;
   alt: string;
-  // onClick: () => void; // Функция для обработки клика на будущее
+  // onClick: () => void; // Функция для обработки клика на будущее (мб бесполезна)
 };
 
 const CartIcon: React.FC<CartIconProps> = ({ iconSrc, count, alt}) => {
   return (
     <div className="relative w-[60px] h-[60px] flex items-center justify-center">
       <Image
-        src={iconSrc} // или .png / .jpg — в зависимости от формата
+        src={iconSrc}
         alt={alt}
         width={32}
         height={32}

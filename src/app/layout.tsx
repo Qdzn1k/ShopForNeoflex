@@ -1,5 +1,3 @@
-
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
@@ -42,7 +40,6 @@ export default function RootLayout({
         }
       >
         <div className="max-w-[1440px] mx-auto font-[family-name:var(--font-montserrat)] min-h-screen flex flex-col">
-          {/* Хедер - выносим за пределы ограниченного контейнера */}
           <div className="w-full">
             <div className="max-w-[1110px] mx-auto h-[60px] flex items-center justify-between mb-[28px]">
               <Link href='/'>

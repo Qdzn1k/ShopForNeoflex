@@ -80,7 +80,7 @@ const Card = ({ product }: CardProps) => {
         {quantity === 0 ? (
           <button
             onClick={handleBuy}
-            className="text-black "
+            className="text-black cursor-pointer"
           >
             Купить
           </button>
@@ -88,14 +88,14 @@ const Card = ({ product }: CardProps) => {
           <div className="flex items-center">
             <button
               onClick={handleDecrement}
-              className="bg-[#FFCE7F] px-2 rounded-full text-white"
+              className="bg-[#FFCE7F] px-2 rounded-full text-white  cursor-pointer"
             >
               −
             </button>
             <span className='w-10 text-center text-[#1C1C27]'>{quantity}</span>
             <button
               onClick={handleIncrement}
-              className="bg-[#FFCE7F] px-2 rounded-full text-white"
+              className="bg-[#FFCE7F] px-2 rounded-full text-white  cursor-pointer"
             >
               +
             </button>

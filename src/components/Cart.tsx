@@ -7,9 +7,10 @@ type CartIconProps = {
   count: number;
   iconSrc: string;
   alt: string;
+  // onClick: () => void; // Функция для обработки клика на будущее
 };
 
-const CartIcon: React.FC<CartIconProps> = ({ iconSrc, count, alt }) => {
+const CartIcon: React.FC<CartIconProps> = ({ iconSrc, count, alt}) => {
   return (
     <div className="relative w-[60px] h-[60px] flex items-center justify-center">
       <Image

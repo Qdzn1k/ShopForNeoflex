@@ -1,10 +1,41 @@
-'use client'; 
+'use client';
 
 // import Image from "next/image";
+import { useState, useEffect } from 'react';
 import Card from "@/components/Card"
-import {products} from "@/data/products"
+import { Product, products } from "@/data/products"
 
 export default function Home() {
+
+  const [cart, setCart] = useState<Product[]>([]);
+
+  const wiredProducts = products.filter((p) => p.type === 'wired');
+  const wirelessProducts = products.filter((p) => p.type === 'wireless');
+
+  // Функция для добавления товара в корзину
+  const handleAddToCart = (product: Product) => {
+    console.log("prprrr")
+    const existingCart = JSON.parse(sessionStorage.getItem('cart') || '[]');
+    console.log(existingCart)
+
+    // Проверим, есть ли уже такой товар в корзине
+    const index = existingCart.findIndex((item: Product) => item.id === product.id);
+
+    if (index !== -1) {
+      // Если есть, увеличим quantity
+      existingCart[index].quantity += 1;
+    } else {
+      // Если нет — добавим с quantity = 1
+      existingCart.push({ ...product, quantity: 1 });
+    }
+
+    // Сохраняем обновленную корзину в sessionStorage и в state
+    sessionStorage.setItem('cart', JSON.stringify(existingCart));
+    setCart(existingCart); // Обновляем состояние корзины
+
+    window.dispatchEvent(new Event("cartUpdated"));
+  };
+
   return (
     // <div className="grid grid-rows-[20px_1fr_20px] min-h-screen">
     <div>
@@ -19,13 +50,16 @@ export default function Home() {
                 alt="Наушнеке"
                 onBuy={(name) => {
                   console.log("Добавлено в корзину:", name)}}/> */}
-                  {products.map((product) => (
-        <Card key={product.id} product={product} />
-      ))}
+          {wiredProducts.map((product) => (
+            <Card key={product.id} product={product}/>
+          ))}
+          {wirelessProducts.map((product) => (
+            <Card key={product.id} product={product} />
+          ))}
           <h1>Наушники</h1>
           <h1>Наушники</h1>
           <h1>Наушники</h1>
-          
+
         </div>
       </div>
       {/* <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">

@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import CardInCart from '@/components/CardInCart';
 import Link from 'next/link';
 
 interface Product {
@@ -9,7 +9,6 @@ interface Product {
   price: number;
   oldPrice: number;
   rating: number;
-  // alt: string;
   id: string
   quantity: number
 };
@@ -24,59 +23,51 @@ export default function CartPage() {
     }
   }, []);
 
+  // Функция для изменения количества товара
+  const handleQuantityChange = (id: string, newQuantity: number) => {
+    if (newQuantity <= 0) return;
+    const updatedCart = cart.map(item =>
+      item.id === id ? { ...item, quantity: newQuantity } : item
+    );
+    
+    sessionStorage.setItem('cart', JSON.stringify(updatedCart)); // Обновление sessionStorage
+    setCart(updatedCart);
+
+    
+  };
+
+  // Функция для удаления товара из корзины
+  const handleRemove = (id: string) => {
+    const updatedCart = cart.filter(item => item.id !== id);
+    
+    sessionStorage.setItem('cart', JSON.stringify(updatedCart)); // Обновление sessionStorage
+    setCart(updatedCart);
+  };
+  window.dispatchEvent(new Event("cartUpdated"));
+
   return (
-    <div className=''>
+    <div>
       <h1 className="text-xl font-bold mb-4">Корзина</h1>
       <div className='grid grid-cols-2'>
         <div className='space-y-[20px]'>
-          {cart.length === 0 && <Link href='/' className='font-semibold text-'>Ваша корзина пуста, давайте это исправим!</Link>}
+          {cart.length === 0 && (
+            <Link href='/' className='font-semibold text-[#1C1C27]'>
+              Ваша корзина пуста, давайте это исправим!
+            </Link>)}
           {cart.map((item, index) => (
-            <div key={index} className=" font-semibold bg-white rounded-[30px] px-[18px] pt-[18px] pb-[12px]">
-              <div className=' flex items-stretch h-full'>
-                <div className='flex items-center'>
-                  <Image
-                    src={item.image}
-                    alt="Рейтинг"
-                    width={144}
-                    height={144}
-                  />
-                  <div className='ms-[23px] items-center'>
-                    <p className="font-medium">{item.name}</p>
-                    <p className="mt-[12px] text-sm text-gray-500">{item.price} ₽</p>
-                  </div>
-                </div>
-
-                <div className='flex flex-col justify-between ml-auto'>
-                  <p className="text-right">x{item.quantity}</p>
-                  <p className="text-right font-bold">
-                    {item.price * item.quantity}₽
-                  </p>
-                </div>
-              </div>
-              <div className='ms-6 flex items-center justify-between'>
-                <div className="flex items-center">
-                  <button
-                    // onClick={handleDecrement}
-                    className="bg-[#FFCE7F] px-2 rounded-full text-white"
-                  >
-                    −
-                  </button>
-                  <span className='w-10 text-center text-[#1C1C27]'>{item.quantity}</span>
-                  <button
-                    // onClick={handleIncrement}
-                    className="bg-[#FFCE7F] px-2 rounded-full text-white"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-
-
-            </div>
+            <CardInCart
+              key={item.id}
+              item={item}
+              onQuantityChange={handleQuantityChange}
+              onRemove={handleRemove} />
           ))}
         </div>
         <div>
-          Ffg
+          {/* Здесь может быть информация о стоимости заказа или дополнительные элементы */}
+          <h2 className="font-semibold text-lg">Итоговая стоимость:</h2>
+          <p>
+            {cart.reduce((total, item) => total + item.price * item.quantity, 0)} ₽
+          </p>
         </div>
       </div>
 

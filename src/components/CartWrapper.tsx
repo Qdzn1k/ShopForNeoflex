@@ -1,4 +1,4 @@
-'use client'; // Помечаем этот компонент как клиентский
+'use client';
 
 import { useEffect, useState } from "react";
 import CartIcon from "@/components/Cart";
@@ -8,7 +8,7 @@ const CartWrapper = () => {
     const [cartCount, setCartCount] = useState(0);
 
     const updateCartCount = () => {
-        // Загружаем количество товаров из sessionStorage
+
         const cart = JSON.parse(sessionStorage.getItem('cart') || '[]');
         const totalQuantity = cart.reduce(
             (sum:number, item:{quantity:number}) => sum + item.quantity,
@@ -20,16 +20,16 @@ const CartWrapper = () => {
     useEffect(() => {
         updateCartCount();
     
-        // Следим за изменениями в sessionStorage (например, из других компонентов)
+       
         const handleStorage = (e: StorageEvent) => {
           if (e.key === "cart") {
             updateCartCount();
           }
         };
-    
+        // изменения внутри другой вкладки (вроде, но удаление точно видит) 
         window.addEventListener("storage", handleStorage);
     
-        // На случай изменения внутри одной вкладки (например, при клике "Купить")
+        // изменения внутри одной вкладки 
         window.addEventListener("cartUpdated", updateCartCount);
     
         return () => {

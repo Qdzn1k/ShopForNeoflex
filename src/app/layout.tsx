@@ -65,7 +65,7 @@ export default function RootLayout({
                 <h1 className="font-bold text-[25px] leading-[100%] tracking-[0%]">QPICK</h1>
               </Link>
               <div className="flex flex-col font-normal space-y-[10px]">
-                <Link href="/" className="pointer-events-none">Избранное</Link>
+                <Link href="/" className="cursor-pointer pointer-events-none">Избранное</Link>
                 <Link href="/cartPage">Корзина</Link>
                 <Link href="/" className="pointer-events-none">Контакты</Link>
               </div>
@@ -78,11 +78,11 @@ export default function RootLayout({
                     height={20}
                     alt='world'
                   />
-                  <button className="text-[#FFA542] font-bold">
+                  <button className="cursor-pointer text-[#FFA542] font-bold">
                     Рус
                   </button>
-                  <p>Eng</p>
-                  <p>Kaz</p>
+                  <p className="cursor-pointer">Eng</p>
+                  <p className="cursor-pointer">Kaz</p>
                 </div>
               </div>
               <div className="flex items-start justify-end">

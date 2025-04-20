@@ -53,7 +53,7 @@ const Card = ({ product }: CardProps) => {
 
   return (
     <div className="flex flex-col items-center rounded-[30px] bg-white items-center justify-center px-[20px] pt-[12px] pb-[32px]">
-      <div className='h-[237px]'>
+      <div className='h-[237px] flex items-center'>
         <Image
           src={product.image}
           alt={product.name}

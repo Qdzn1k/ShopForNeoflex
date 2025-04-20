@@ -19,11 +19,11 @@ export const products = [
       type: 'wired'
     },
     {
-      id: '111',
-      name: 'Apple BYZ S8521',
-      price: 2927,
-      image: '/Apple BYZ S8521.png',
-      oldPrice: 3527,
+      id: '13',
+      name: 'Apple EarPods',
+      price: 2327,
+      image: '/Apple EarPods.png',
+      oldPrice: null,
       rating: 4.5,
       type: 'wired'
     },
@@ -46,20 +46,11 @@ export const products = [
       type: 'wired'
     },
     {
-      id: '121',
-      name: 'Apple EarPods in case',
-      price: 2327,
-      image: '/Apple EarPods in case.png',
-      oldPrice: null,
-      rating: 4.5,
-      type: 'wired'
-    },
-    {
-      id: '13',
-      name: 'Apple EarPods',
-      price: 2327,
-      image: '/Apple EarPods.png',
-      oldPrice: null,
+      id: '111',
+      name: 'Apple BYZ S8521',
+      price: 2927,
+      image: '/Apple BYZ S8521.png',
+      oldPrice: 3527,
       rating: 4.5,
       type: 'wired'
     },
@@ -72,6 +63,17 @@ export const products = [
       rating: 4.5,
       type: 'wired'
     },
+    {
+      id: '121',
+      name: 'Apple EarPods in case',
+      price: 2327,
+      image: '/Apple EarPods in case.png',
+      oldPrice: null,
+      rating: 4.5,
+      type: 'wired'
+    },
+    
+    
     {
       id: '22',
       name: 'GERLAX GH-04',

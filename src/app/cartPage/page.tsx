@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Product {
   image: string;
@@ -24,11 +25,11 @@ export default function CartPage() {
   }, []);
 
   return (
-    <div>
+    <div className=''>
       <h1 className="text-xl font-bold mb-4">Корзина</h1>
       <div className='grid grid-cols-2'>
         <div className='space-y-[20px]'>
-          {cart.length === 0 && <p>Корзина пуста</p>}
+          {cart.length === 0 && <Link href='/' className='font-semibold text-'>Ваша корзина пуста, давайте это исправим!</Link>}
           {cart.map((item, index) => (
             <div key={index} className=" font-semibold bg-white rounded-[30px] px-[18px] pt-[18px] pb-[12px]">
               <div className=' flex items-stretch h-full'>

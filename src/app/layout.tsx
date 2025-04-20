@@ -33,32 +33,41 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable}  antialiased bg-[#EAEAEA] min-h-screen`
-      }
+        }
       >
-        <div className=" max-w-[1440px] mx-auto font-[family-name:var(--font-montserrat)]">
-          <div className="max-w-[1110px] mx-auto ">
-            <div className="h-[60px] flex items-center place-content-between  mb-[28px]">
+        <div className="max-w-[1440px] mx-auto font-[family-name:var(--font-montserrat)] min-h-screen flex flex-col">
+          {/* Хедер - выносим за пределы ограниченного контейнера */}
+          <div className="w-full">
+            <div className="max-w-[1110px] mx-auto h-[60px] flex items-center justify-between mb-[28px]">
               <Link href='/'>
                 <h1 className="font-bold text-[25px] leading-[100%] tracking-[0%]">QPICK</h1>
               </Link>
-              
               <div className="flex">
-                <CartIcon count={0} alt="Избранное" iconSrc="/favorite.svg"/>
-                <CartIcon count={1} alt="Корзина" iconSrc="/cart.svg"/>
-                <CartWrapper/>
+                <CartIcon count={0} alt="Избранное" iconSrc="/favorite.svg" />
+                <CartWrapper />
               </div>
-              
             </div>
-             {children}
           </div>
-          
+
+          <main className="max-w-[1110px] mx-auto flex-grow w-full">
+            {children}
+          </main>
+
+          <footer className="w-full mt-[20px]">
+            <div className="max-w-[1110px] bg-white rounded-tl-[30px] rounded-tr-[30px] mx-auto px-[29px] pt-[28px] grid grid-cols-4">
+              <Link href='/'>
+                <h1 className="font-bold text-[25px] leading-[100%] tracking-[0%]">QPICK</h1>
+              </Link>
+              <p>ikffiodjgifdj dfijgiopfd df jgfdikop jgoidfjg oifdj oigdjf iogjdfoi jgiodf jgoifdj goidjf iojgiodf</p>
+            </div>
+          </footer>
         </div>
-        
+
       </body>
     </html>
   );

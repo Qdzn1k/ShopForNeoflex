@@ -42,24 +42,16 @@ export default function Home() {
       <div>
         <h2 className="font-semibold text-xl text-[#838383] mb-[20px]">Наушники</h2>
         <div className="font-semibold text-xl text-[#838383] grid grid-cols-3 gap-[30px]">
-          {/* <Card imgSrc="/Apple BYZ S8521.png"
-                productName="Apple BYZ S852I"
-                price={2927}
-                lastPrice={3527}
-                rating={4.7}
-                alt="Наушнеке"
-                onBuy={(name) => {
-                  console.log("Добавлено в корзину:", name)}}/> */}
           {wiredProducts.map((product) => (
             <Card key={product.id} product={product}/>
-          ))}
-          {wirelessProducts.map((product) => (
+          ))}    
+
+        </div>
+        <h2 className="mt-[28px] font-semibold text-xl text-[#838383] mb-[20px]">Беспроводные наушники</h2>
+        <div className="font-semibold text-xl text-[#838383] grid grid-cols-3 gap-[30px]">
+        {wirelessProducts.map((product) => (
             <Card key={product.id} product={product} />
           ))}
-          <h1>Наушники</h1>
-          <h1>Наушники</h1>
-          <h1>Наушники</h1>
-
         </div>
       </div>
       {/* <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">

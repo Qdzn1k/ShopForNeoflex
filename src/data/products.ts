@@ -1,48 +1,94 @@
 export type Product = {
   id: string;
   name: string;
-  price: number;
-  oldPrice: number;
-  rating: number;
+  price: number | null;
+  oldPrice: number | null;
+  rating: number | null;
   image: string;
   type: string;
 };
 
 export const products = [
     {
-      id: '1',
-      name: 'Наушники Apple',
-      price: 2999,
+      id: '11',
+      name: 'Apple BYZ S8521',
+      price: 2927,
       image: '/Apple BYZ S8521.png',
-      oldPrice: 3999,
+      oldPrice: 3527,
       rating: 4.5,
       type: 'wired'
     },
     {
-      id: '2',
-      name: 'Наушники Sony',
-      price: 3499,
-      image: '/sony-headphones.png',
-      oldPrice: 4499,
-      rating: 4.8,
+      id: '111',
+      name: 'Apple BYZ S8521',
+      price: 2927,
+      image: '/Apple BYZ S8521.png',
+      oldPrice: 3527,
+      rating: 4.5,
       type: 'wired'
     },
     {
-      id: '3',
-      name: 'Наушники Хорошие',
-      price: 3499,
-      image: '/sony-headphones.png',
-      oldPrice: 4499,
-      rating: 4.8,
+      id: '21',
+      name: 'Apple AirPods',
+      price: 9527,
+      image: '/Apple AirPods.png',
+      oldPrice: null,
+      rating: 4.7,
+      type: 'wireless'
+    },
+    {
+      id: '12',
+      name: 'Apple EarPods in case',
+      price: 2327,
+      image: '/Apple EarPods in case.png',
+      oldPrice: null,
+      rating: 4.5,
       type: 'wired'
     },
     {
-      id: '42',
-      name: 'Наушники Плохие',
-      price: 3499,
-      image: '/sony-headphones.png',
-      oldPrice: 4499,
-      rating: 4.8,
+      id: '121',
+      name: 'Apple EarPods in case',
+      price: 2327,
+      image: '/Apple EarPods in case.png',
+      oldPrice: null,
+      rating: 4.5,
       type: 'wired'
-    },]
+    },
+    {
+      id: '13',
+      name: 'Apple EarPods',
+      price: 2327,
+      image: '/Apple EarPods.png',
+      oldPrice: null,
+      rating: 4.5,
+      type: 'wired'
+    },
+    {
+      id: '131',
+      name: 'Apple EarPods',
+      price: 2327,
+      image: '/Apple EarPods.png',
+      oldPrice: null,
+      rating: 4.5,
+      type: 'wired'
+    },
+    {
+      id: '22',
+      name: 'GERLAX GH-04',
+      price: 6527,
+      image: '/GERLAX GH-04.png',
+      oldPrice: null,
+      rating: 4.7,
+      type: 'wireless'
+    },
+    {
+      id: '23',
+      name: 'BOROFONE BO4',
+      price: 7527,
+      image: '/BOROFONE BO4.png',
+      oldPrice: null,
+      rating: 4.7,
+      type: 'wireless'
+    }
+  ]
     
